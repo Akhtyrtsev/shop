@@ -25,7 +25,7 @@ SECRET_KEY = '$)=kuf4ybazkxtg#pf9jlog*30#p2o%+m*m1p!l8b&@^6hyfxt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.myproject.com',]
+ALLOWED_HOSTS = ['127.0.0.1',]
 
 CART_SESSION_ID = 'cart'
 
@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'bootstrap3',
     'cart',
     'orders',
+    'paypal.standard.ipn',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +140,8 @@ MEDIA_ROOT = '/home/illia/Projects/Red/myproject/myproject/media/'
 
 # Email
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# Paypal
+PAYPAL_RECEIVER_EMAIL = 'akhtyrtsev@gmail.com'
+PAYPAL_TEST = True

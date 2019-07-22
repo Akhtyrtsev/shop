@@ -1,5 +1,6 @@
 from django.db import models
 from shop.models import Product
+from decimal import Decimal
 
 
 class Order(models.Model):
@@ -21,8 +22,9 @@ class Order(models.Model):
     def __str__(self):
         return 'Заказ: {}'.format(self.id)
 
-    def total_cost(self):
-        return sum(item.get_cost() for item in self.items.all())
+    def get_total_cost(self):
+        total_cost = sum(item.get_cost() for item in self.items.all())
+        return total_cost
 
 
 class OrderItem(models.Model):
